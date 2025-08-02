@@ -63,5 +63,5 @@ app.use('/api/orders', orderRoutes)
 app.use('/api/admin', userRoutes)
 app.use('/api/offers', offerRoutes);
 
-const PORT = 4000
-app.listen(PORT, () => console.log(`Server running on port 4000`))
+const PORT = process.env.PORT || 6000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
