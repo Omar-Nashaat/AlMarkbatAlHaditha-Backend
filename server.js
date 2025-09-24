@@ -20,8 +20,8 @@ app.use('./uploads', express.static(path.join(__dirname, 'uploads')))
 app.use(bodyParser.json())
 app.use(
   cors({
-    origin: 'http://localhost:5173',
-    // origin: 'https://ashur-banipal.com',
+    // origin: 'http://localhost:5173',
+    origin: 'http://www.almarkabatalhaditha.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true // Allow cookies and authorization headers
   })
@@ -56,12 +56,12 @@ app.get('/api/create-session', (req, res) => {
 })
 
 // Routes
-app.use('/api/cart', cartRoutes)
-app.use('/api/products', productRoutes)
-app.use('/api/categories', categoryRoutes)
-app.use('/api/orders', orderRoutes)
-app.use('/api/admin', userRoutes)
-app.use('/api/offers', offerRoutes);
+app.use('/cart', cartRoutes)
+app.use('/products', productRoutes)
+app.use('/categories', categoryRoutes)
+app.use('/orders', orderRoutes)
+app.use('/admin', userRoutes)
+app.use('/offers', offerRoutes);
 
 const PORT = process.env.PORT || 6000
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
