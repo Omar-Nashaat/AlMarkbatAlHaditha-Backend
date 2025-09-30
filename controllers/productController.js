@@ -129,12 +129,13 @@ exports.bulkUploadProducts = [
         })
 
         const itemNumber = cleanedRow['Model Number']
-        const description = cleanedRow['اسم المادة']
+        const name = cleanedRow['اسم المادة']
+        const description = cleanedRow['product specification']
         const categoryName = cleanedRow['اسم الصنف']
         const price = cleanedRow['السعر المستهلك']
 
         // Ensure required fields exist
-        if (!itemNumber || !description || !price || !categoryName) {
+        if (!itemNumber || !description || !price || !categoryName || !name) {
           console.warn(`Skipping row due to missing fields:`, cleanedRow)
           continue
         }
@@ -177,7 +178,7 @@ exports.bulkUploadProducts = [
 
         // Create a new product
         const newProduct = new Product({
-          name: description,
+          name,
           itemNumber,
           description,
           price: formattedPrice,
